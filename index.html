@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Levi S. J. Tacang — Portfolio</title>
+  <meta name="description" content="Levi Strauss J. Tacang — Aspiring Full-Stack & Software Engineer. Projects, skills, certifications, and contact." />
+  <meta name="author" content="Levi Strauss J. Tacang" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa7bf;
+      --accent:#57b3ff;
+      --accent-2:#8be38b;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:14px;
+      color-scheme: dark;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg, #071026 0%, #071623 60%);
+      color:#e8f0ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      justify-content:center;
+      padding:32px 18px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:28px;
+    }
+
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#7ad9ff 60%);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 6px 18px rgba(87,179,255,0.12), inset 0 -6px 18px rgba(255,255,255,0.03);
+      font-weight:800;color:#02122a;
+      font-size:18px;
+    }
+    .brand h1{margin:0;font-size:18px;line-height:1}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    .controls{display:flex;gap:10px;align-items:center}
+    .btn{
+      background:var(--glass); padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+      color:inherit;font-weight:600;font-size:13px;cursor:pointer;backdrop-filter: blur(6px);
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.alt{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+    .theme-toggle{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:10px}
+
+    main{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+    }
+
+    /* HERO */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:22px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03);
+      position:relative;overflow:hidden;
+    }
+    .hero-grid{display:flex;gap:20px;align-items:center}
+    .intro{
+      flex:1;
+    }
+    .eyebrow{font-size:13px;color:var(--accent-2);font-weight:700;margin-bottom:6px;}
+    .title{font-size:26px;margin:0 0 8px 0;line-height:1.05}
+    .subtitle{color:var(--muted);margin:0 0 14px 0}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .cta{background:var(--accent);color:#011826;padding:10px 14px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .cta.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);}
+
+    /* profile card */
+    .card{
+      background:linear-gradient(180deg,var(--card), rgba(255,255,255,0.01));
+      padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .profile{
+      display:flex;gap:14px;align-items:center;
+    }
+    .avatar{
+      width:84px;height:84px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#7fe0a8);
+      display:flex;align-items:center;justify-content:center;font-size:28px;color:#03121a;font-weight:800;
+      box-shadow:0 6px 24px rgba(0,0,0,0.35);
+    }
+    .meta h2{margin:0;font-size:16px}
+    .meta p{margin:0;color:var(--muted);font-size:13px}
+
+    .info-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:13px;color:var(--muted)}
+
+    /* content sections */
+    section{margin-top:18px}
+    h3{margin:0 0 10px 0;font-size:15px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .skills{display:flex;flex-direction:column;gap:10px}
+    .skill{
+      background:var(--glass-2);padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.01)
+    }
+    .skill .top{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+    .bar{
+      height:10px;background:rgba(255,255,255,0.06);border-radius:999px;margin-top:8px;overflow:hidden;
+    }
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#9ff2b1);width:0%;transition:width 1.2s cubic-bezier(.2,.9,.2,1)}
+    
+    /* projects */
+    .projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    .project{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s ease,box-shadow .18s;
+    }
+    .project:hover{transform:translateY(-6px);box-shadow:0 18px 28px rgba(2,10,20,0.6)}
+    .proj-title{font-size:14px;margin:0 0 6px 0}
+    .proj-desc{font-size:13px;color:var(--muted);margin:0 0 8px 0}
+    .proj-tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;color:var(--muted)}
+
+    /* timeline */
+    .timeline{display:flex;flex-direction:column;gap:10px}
+    .timeline-item{display:flex;gap:12px;align-items:flex-start}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);margin-top:6px}
+    .t-body{font-size:13px;color:var(--muted)}
+
+    /* contact */
+    .contact-form input,.contact-form textarea{
+      width:100%;padding:10px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit;
+      resize:vertical;font-size:14px;
+    }
+    .contact-row{display:flex;gap:8px}
+    .contact-row>div{flex:1}
+
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* small screens */
+    @media (max-width:940px){
+      main{grid-template-columns:1fr}
+      .hero-grid{flex-direction:column;align-items:flex-start}
+    }
+
+    /* subtle hero animation */
+    .bg-blob{
+      position:absolute;right:-8%;top:-14%;width:420px;height:420px;border-radius:40%;
+      background:radial-gradient(circle at 30% 30%, rgba(87,179,255,0.12), transparent 20%),
+                 radial-gradient(circle at 70% 70%, rgba(139,227,139,0.06), transparent 25%);
+      filter: blur(36px);transform:rotate(12deg);opacity:0.9;pointer-events:none;
+      animation: floaty 8s ease-in-out infinite;
+    }
+    @keyframes floaty{
+      0%{transform:translateY(0) rotate(8deg)}
+      50%{transform:translateY(-18px) rotate(2deg)}
+      100%{transform:translateY(0) rotate(8deg)}
+    }
+
+    /* accessibility focus */
+    button:focus, a:focus, input:focus, textarea:focus{outline:3px solid rgba(87,179,255,0.18);outline-offset:2px}
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div class="brand" aria-label="brand">
+        <div class="logo" aria-hidden="true">LSJ</div>
+        <div>
+          <h1>Levi Strauss J. Tacang</h1>
+          <p>Aspiring Full‑Stack & Software Engineer — Carmona, Cavite</p>
+        </div>
+      </div>
+
+      <div class="controls" aria-hidden="false">
+        <a class="btn alt" href="#projects">Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+        <button class="btn theme-toggle" id="themeToggle" aria-pressed="false" title="Toggle theme">🌙 Toggle</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- LEFT COLUMN -->
+      <section class="hero card" aria-labelledby="heroTitle">
+        <div class="bg-blob" aria-hidden="true"></div>
+
+        <div class="hero-grid">
+          <div class="intro">
+            <div class="eyebrow">Hello — I build useful apps</div>
+            <h2 id="heroTitle" class="title">Hi, I'm Levi — a young developer learning full‑stack development.</h2>
+            <p class="subtitle">I make responsive websites, small apps, and learning tools using HTML, CSS, JavaScript, and Python.</p>
+
+            <div class="cta-row">
+              <a class="cta" href="#projects">See Projects</a>
+              <a class="cta secondary" href="#contact">Hire / Contact</a>
+            </div>
+
+            <div style="margin-top:16px;">
+              <strong style="font-size:13px;color:var(--muted)">Quick links</strong>
+              <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+                <a class="chip" href="#education">Certifications</a>
+                <a class="chip" href="#skills">Skills</a>
+                <a class="chip" href="#projects">Portfolio</a>
+              </div>
+            </div>
+          </div>
+
+          <aside style="width:320px">
+            <div class="card profile" aria-label="profile card">
+              <div class="avatar" role="img" aria-label="Initials">LS</div>
+              <div style="flex:1" class="meta">
+                <h2>Levi Strauss J. Tacang</h2>
+                <p>13 • Carmona, Cavite</p>
+                <div class="info-list" style="margin-top:10px">
+                  <span class="chip">levistrausstacang@gmail.com</span>
+                  <span class="chip">0956 832 9620</span>
+                </div>
+              </div>
+            </div>
+
+            <section style="margin-top:12px" aria-labelledby="educationTitle">
+              <h3 id="educationTitle">Education & Certifications</h3>
+              <div class="timeline card" style="padding:12px;">
+                <div class="timeline-item">
+                  <div class="dot" aria-hidden="true"></div>
+                  <div>
+                    <strong>School</strong>
+                    <div class="t-body">Carmona National High School — Student</div>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="dot" aria-hidden="true"></div>
+                  <div>
+                    <strong>Certs</strong>
+                    <div class="t-body">HTML & CSS (Mimo) — JavaScript (Alison) — Python (Codeliber) — C (Programiz) — CS105 Python (Saylor)</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </aside>
+        </div>
+
+        <!-- Skills strip -->
+        <section id="skills" style="margin-top:16px">
+          <h3>Technical Skills</h3>
+          <div class="skills">
+            <div class="skill">
+              <div class="top"><span>Front-End (HTML/CSS/JS)</span><span>85%</span></div>
+              <div class="bar" data-percent="85"><i></i></div>
+            </div>
+            <div class="skill">
+              <div class="top"><span>Python</span><span>72%</span></div>
+              <div class="bar" data-percent="72"><i></i></div>
+            </div>
+            <div class="skill">
+              <div class="top"><span>C (basics)</span><span>60%</span></div>
+              <div class="bar" data-percent="60"><i></i></div>
+            </div>
+            <div class="skill">
+              <div class="top"><span>Git & GitHub</span><span>68%</span></div>
+              <div class="bar" data-percent="68"><i></i></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" style="margin-top:18px">
+          <h3>Projects</h3>
+          <div class="projects" aria-live="polite">
+            <article class="project">
+              <h4 class="proj-title">Personal Portfolio Website</h4>
+              <p class="proj-desc">Responsive portfolio built with HTML, CSS and JavaScript. Showcases my skills and projects.</p>
+              <div class="proj-tags">
+                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <h4 class="proj-title">Basic Calculator</h4>
+              <p class="proj-desc">Calculator app handling basic arithmetic operations implemented in vanilla JS.</p>
+              <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">UI</span></div>
+            </article>
+
+            <article class="project">
+              <h4 class="proj-title">Python Quiz App</h4>
+              <p class="proj-desc">Console-based quiz to review programming topics — great for practicing logic.</p>
+              <div class="proj-tags"><span class="tag">Python</span></div>
+            </article>
+
+            <article class="project">
+              <h4 class="proj-title">Mini E-Commerce Front-end</h4>
+              <p class="proj-desc">Mock online shop interface with product listings and cart UI (front-end only).</p>
+              <div class="proj-tags"><span class="tag">Responsive</span><span class="tag">Design</span></div>
+            </article>
+          </div>
+        </section>
+
+        <footer style="margin-top:18px">
+          <small>Available for collaboration, school projects, and small freelance tasks. © <span id="year"></span> Levi Strauss J. Tacang</small>
+        </footer>
+      </section>
+
+      <!-- RIGHT COLUMN -->
+      <aside>
+        <div class="card">
+          <h3>Contact</h3>
+          <p style="color:var(--muted);font-size:13px;margin:0 0 8px 0">Feel free to reach out for collaboration or mentorship opportunities.</p>
+
+          <form id="contact" class="contact-form" aria-label="Contact form">
+            <label style="display:block;margin-bottom:8px;font-size:13px">Name</label>
+            <input id="name" type="text" placeholder="Your full name" required autocomplete="name">
+
+            <label style="display:block;margin:12px 0 8px 0;font-size:13px">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required autocomplete="email">
+
+            <label style="display:block;margin:12px 0 8px 0;font-size:13px">Message</label>
+            <textarea id="message" rows="5" placeholder="Write a short message..." required></textarea>
+
+            <div style="margin-top:10px;display:flex;gap:8px;align-items:center;">
+              <button type="submit" class="btn">Send</button>
+              <a class="btn alt" href="mailto:levistrausstacang@gmail.com?subject=Contact%20from%20Portfolio" target="_blank" rel="noopener">Email Directly</a>
+            </div>
+
+            <div id="formMsg" role="status" style="margin-top:10px;color:var(--muted);font-size:13px"></div>
+          </form>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Soft Skills</h3>
+          <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:13px">
+            <li>Attention to detail & code quality</li>
+            <li>Team player & independent worker</li>
+            <li>Fast learner & adaptable</li>
+            <li>Problem solver & time management</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Quick Info</h3>
+          <div style="color:var(--muted);font-size:13px">
+            <p style="margin:0 0 6px 0"><strong>Location:</strong> Carmona, Cavite, Philippines</p>
+            <p style="margin:0 0 6px 0"><strong>School:</strong> Carmona National High School</p>
+            <p style="margin:0"><strong>Age:</strong> 13</p>
+          </div>
+        </div>
+
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // Utility: set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animate skill bars when visible
+    const bars = document.querySelectorAll('.bar');
+    const onIntersect = (entries, obs) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          const el = entry.target.querySelector('i');
+          const pct = entry.target.getAttribute('data-percent') || '60';
+          el.style.width = pct + '%';
+          obs.unobserve(entry.target);
+        }
+      });
+    };
+    const io = new IntersectionObserver(onIntersect, {threshold: 0.2});
+    bars.forEach(b => io.observe(b));
+
+    // Theme toggle (light/dark)
+    const themeBtn = document.getElementById('themeToggle');
+    let isLight = false;
+    themeBtn.addEventListener('click', ()=>{
+      isLight = !isLight;
+      document.documentElement.style.setProperty('--bg', isLight ? '#f6f9ff' : '#0f1724');
+      document.documentElement.style.background = isLight ? 'linear-gradient(180deg,#fbfdff,#eef7ff)' : 'linear-gradient(180deg,#071026,#071623)';
+      document.body.style.color = isLight ? '#042036' : '#e8f0ff';
+      document.querySelectorAll('.card').forEach(c=>{
+        c.style.border = isLight ? '1px solid rgba(2,10,20,0.04)' : '1px solid rgba(255,255,255,0.03)';
+      });
+      themeBtn.innerText = isLight ? '☀️ Light' : '🌙 Toggle';
+      themeBtn.setAttribute('aria-pressed', String(isLight));
+    });
+
+    // Simple contact form handler (client-side)
+    const form = document.querySelector('.contact-form');
+    const formMsg = document.getElementById('formMsg');
+
+    function validateEmail(email){
+      // simple regex (robust enough for client-side)
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if(!name || !email || !message){
+        formMsg.textContent = 'Please complete all fields.';
+        return;
+      }
+      if(!validateEmail(email)){
+        formMsg.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      // Try to open user's email client using mailto as an immediate fallback
+      const subject = encodeURIComponent('Message from Portfolio – ' + name);
+      const body = encodeURIComponent(message + "\n\n— " + name + " (" + email + ")");
+      const mailto = `mailto:levistrausstacang@gmail.com?subject=${subject}&body=${body}`;
+
+      // attempt to open mail client — if popup blocked user still has the mailto link below
+      window.location.href = mailto;
+
+      formMsg.style.color = 'var(--muted)';
+      formMsg.textContent = 'Opening your email client... if nothing happens, click "Email Directly".';
+      setTimeout(()=>{ form.reset(); }, 600);
+    });
+  </script>
+</body>
+</html>
